@@ -55,7 +55,16 @@ public class UI {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		frame.addWindowListener(new java.awt.event.WindowAdapter(){
+			
+			public void windowClosing(java.awt.event.WindowEvent e) {
+				
+			book.save();
+				
+				
+			}
+			
+		});
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
