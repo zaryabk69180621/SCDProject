@@ -8,6 +8,22 @@ public class Book{
 	public ArrayList<Contact> list= new ArrayList<Contact>();
 	
 	public Book(){
+	try {
+		BufferedReader reader= new BufferedReader(new FileReader("./phonebook.txt"));
+		String line;
+		while((line=reader.readLine())!=null) {
+			System.out.print("file"+line);
+			String[]arr=line.split(",");
+			this.addContact(new Contact(arr[0],arr[1],arr[2]));
+			
+		}
+				System.out.print("Book initiaized");
+	reader.close();
+	}catch(Exception e) {
+		
+		System.err.print(e.getMessage());
+		
+	}
 	}
 	
 	public void addContact(Contact p) {
